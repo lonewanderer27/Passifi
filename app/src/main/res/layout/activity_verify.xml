@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <!-- Back button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"/>
+
+    <!-- OTP Verification title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP Verification"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/backButton"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="-200px">
+
+        <ImageView
+            android:id="@+id/pLogo"
+            android:layout_width="900px"
+            android:layout_height="600px"
+            android:src="@drawable/otp_verify_img"
+            android:layout_centerInParent="true"/>
+        <!-- Enter Verification Code header -->
+        <TextView
+            android:id="@+id/enterCodeHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Verification Code"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/pLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Sent code information text -->
+        <TextView
+            android:id="@+id/sentCodeInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We have sent the code verification to your registered E-mail Address"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/enterCodeHeader"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textAlignment="center"/>
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email Goes Here"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/sentCodeInfo"
+            android:layout_marginTop="8dp"/>
+
+        <!-- OTP input boxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/emailText"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <EditText
+                android:id="@+id/otpBox1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="24sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"/>
+
+            <EditText
+                android:id="@+id/otpBox2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="24sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginStart="10dp"/>
+
+            <EditText
+                android:id="@+id/otpBox3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="24sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+            <EditText
+                android:id="@+id/otpBox4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="24sp"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"/>
+
+            <!-- Add four EditTexts for OTP input -->
+
+        </LinearLayout>
+
+        <!-- Submit button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_background"
+            android:textSize="18sp"
+            android:layout_below="@id/emailText"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -15,10 +15,10 @@
 
     <!-- Sign in to your account -->
     <TextView
-        android:id="@+id/signInText"
+        android:id="@+id/createAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign in to your account"
+        android:text="Create your Account"
         android:textSize="18sp"
         android:layout_below="@id/headerImage"
         android:layout_marginStart="40dp"
@@ -29,7 +29,7 @@
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signInText"
+        android:layout_below="@id/createAccountText"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"
@@ -55,17 +55,33 @@
         android:elevation="8dp"
         android:layout_centerHorizontal="true"/>
 
-    <!-- Sign In Button -->
-    <Button
-        android:id="@+id/signInButton"
+    <!-- Confirm Password input -->
+    <EditText
+        android:id="@+id/confirmPasswordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordInput"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_text_background"
+        android:elevation="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmPasswordInput"
         android:textSize="50px"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"
-        android:text="Sign In"
+        android:text="Sign Up"
         android:textColor="#FFFFFF"
         android:background="@drawable/button_background"
         android:textAllCaps="false"
@@ -73,11 +89,11 @@
         android:elevation="8dp"
         android:layout_centerHorizontal="true"/>
 
-    <!-- Don't have an account? Sign Up -->
+    <!-- Already have an account? Sign In -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signInButton"
+        android:layout_below="@id/signUpButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
@@ -85,14 +101,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an Account? "
+            android:text="Already have an Account? "
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/signUpText"
+            android:id="@+id/signInText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="Sign In"
             android:textSize="16sp"
             android:textColor="#0474BA"
             android:textStyle="bold" />

@@ -1,5 +1,6 @@
 package com.ja_cabili.passifi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,8 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle Sign Up text click, navigate to Sign Up screen or perform relevant action
+                // Redirect to SignupActivity
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
             }
         });
+
     }
 }
