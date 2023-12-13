@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/teal_200">
+
+    <!-- Text Options in a White Background -->
+    <TextView
+        android:id="@+id/enter_invite_code_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Invite Code"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/scan_qr_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan QR"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <!-- Add more items if necessary -->
+</LinearLayout>

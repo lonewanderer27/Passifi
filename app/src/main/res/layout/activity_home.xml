@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+s
+    <!-- Title/Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="159dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/passifi_logo" />
+
+    <!-- Plus Button for Options -->
+    <ImageView
+        android:id="@+id/plus_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onPlusButtonClick"/>
+
+    <!-- Options Menu (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/options_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corners_popup"
+        android:padding="8dp"
+        android:elevation="12dp"
+        android:visibility="gone"
+        android:layout_below="@id/logo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/enter_invite_code_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Invite Code"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onEnterInviteCodeClick"/>
+
+        <TextView
+            android:id="@+id/scan_qr_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onScanQRClick"/>
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <RelativeLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/rounded_search_bg">
+
+        <EditText
+            android:id="@+id/search_edittext"
+            android:textSize="50px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="30px"
+            android:hint="Search Events"
+            android:background="@android:color/transparent" />
+
+    </RelativeLayout>
+
+    <!-- Tab Layout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorColor="@color/purple_500"
+        android:layout_below="@id/search_bar"
+        android:layout_marginTop="16dp">
+
+        <!-- Tab Items -->
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Future"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- ViewPager -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_200"
+        android:layout_below="@id/tab_layout"/>
+
+</RelativeLayout>
