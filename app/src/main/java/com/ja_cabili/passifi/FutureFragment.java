@@ -48,12 +48,12 @@ public class FutureFragment extends Fragment {
             TextView organizer = cardView.findViewById(R.id.text_organizer);
 
             // Populate the card with event data
-            eventImage.setImageResource(event.getPhoto());
-            eventName.setText(event.getName());
-            attendees.setText("Attendees: " + event.getCurrentAttendees() + " / " + event.getTotalAttendees());
-            date.setText(event.getFormattedDate());
-            location.setText(event.getLocation());
-            organizer.setText(event.getOrganizer());
+            eventImage.setImageResource(event.avatar);
+            eventName.setText(event.title);
+            attendees.setText("Attendees: " + event.current_attendees + " / " + event.total_attendees);
+            date.setText(event.date);
+            location.setText(event.location);
+            organizer.setText(event.organizer);
 
             cardView.setOnClickListener(v -> {
                 // Handle card click if needed
@@ -70,8 +70,8 @@ public class FutureFragment extends Fragment {
     private List<Event> getEventList() {
         // Simulated event data
         List<Event> events = new ArrayList<>();
-        events.add(new Event(R.drawable.conference, "Event 1", 20, 50, "01/01/2023", "Location 1", "Organizer 1"));
-        events.add(new Event(R.drawable.conference, "Event 2", 15, 30, "05/02/2023", "Location 2", "Organizer 2"));
+        events.add(new Event("Event 1", R.drawable.conference, "Description 1", "01/01/2023", "Time 1", "Location 1", "Organizer 1", "Organizer Email 1", "Organizer Approval 1", "User ID 1", "Invite Code 1", 20, 50, 0));
+        events.add(new Event("Event 2", R.drawable.conference, "Description 2", "05/02/2023", "Time 2", "Location 2", "Organizer 2", "Organizer Email 2", "Organizer Approval 2", "User ID 2", "Invite Code 2", 30, 50, 1));
         // Add more events as needed
         return events;
     }

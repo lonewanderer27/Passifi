@@ -152,6 +152,4 @@ public class HomeActivity extends AppCompatActivity{
 
         return (x > viewX && x < (viewX + viewWidth)) && (y > viewY && y < (viewY + viewHeight));
     }
-
-
 }

@@ -24,15 +24,30 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp" />
 
-    <!-- Email input -->
+    <!-- Name input -->
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/nameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/createAccountText"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:hint="Name"
+        android:background="@drawable/edit_text_background"
+        android:elevation="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Email input -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameInput"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
         android:hint="Email"
         android:background="@drawable/edit_text_background"

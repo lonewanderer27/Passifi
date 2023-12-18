@@ -1,43 +1,69 @@
-package com.ja_cabili.passifi;
+package com.ja_cabili.passifi
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.ProgressDialog
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.ja_cabili.passifi.repository.Repository
 
-public class SignupActivity extends AppCompatActivity {
+class SignupActivity : AppCompatActivity() {
+    private lateinit var progressDialog: ProgressDialog
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_signup)
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        // Initialize ProgressDialog
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Loading...")
 
+        val viewModel = MainViewModelFactory(Repository()).create(MainViewModel::class.java)
         // Find views by their IDs
-        TextView signInText = findViewById(R.id.signInText);
-        TextView signUpButton = findViewById(R.id.signUpButton);
+        val signInText = findViewById<TextView>(R.id.signInText)
+        val signUpButton = findViewById<TextView>(R.id.signUpButton)
+        val passwordInput = findViewById<TextView>(R.id.passwordInput)
+        val confirmPasswordInput = findViewById<TextView>(R.id.confirmPasswordInput)
 
         // Add click listener to "Sign In" TextView
-        signInText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirect to LoginActivity
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish(); // Finish current activity to prevent going back on pressing back button
-            }
-        });
+        signInText.setOnClickListener {
+            // Redirect to LoginActivity
+            finish() // Finish current activity to prevent going back on pressing back button
+        }
 
 
         // Add click listener to "Sign Up" Button
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Add your sign-up logic here
-                // For example, you can validate inputs and create a new account
+        signUpButton.setOnClickListener {
+            val password = passwordInput.text.toString()
+            val confirmPassword = confirmPasswordInput.text.toString()
+
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
-        });
+
+            // Show ProgressDialog
+            progressDialog.show()
+
+            viewModel.signup(
+                findViewById<TextView>(R.id.nameInput).text.toString(),
+                findViewById<TextView>(R.id.emailInput).text.toString(),
+                password)
+        }
+
+        viewModel.signupResponse.observe(this) { response ->
+            // Dismiss ProgressDialog
+            progressDialog.dismiss()
+
+            if (response.isSuccessful) {
+                Log.d("Response", response.body()?.user.toString())
+                val intent = Intent(this@SignupActivity, HomeActivity::class.java)
+                startActivity(intent)
+            } else {
+                Log.d("Error: ", response.errorBody()?.string().toString())
+                Toast.makeText(this, "Error: ${response.errorBody()?.string()}", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
