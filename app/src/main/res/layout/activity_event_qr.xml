@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventQR">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kim Dela Cruz"
+            android:textAlignment="center"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/guestId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guest ID: "
+            android:textSize="20sp"
+            android:textAlignment="center"></TextView>
+
+        <!-- Add an ImageView to display the QR Code -->
+        <ImageView
+            android:id="@+id/qrCodeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:contentDescription="QR Code"/>
+
+        <TextView
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Name"
+            android:textAlignment="center"
+            android:textSize="25sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Present QR Code to the Event Organizer"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"></TextView>
+
+        <ImageView
+            android:src="@drawable/passifi_logo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:contentDescription="QR Code"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

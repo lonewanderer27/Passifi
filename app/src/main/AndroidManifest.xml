@@ -11,9 +11,15 @@
         android:icon="@drawable/p_icon"
         android:roundIcon="@drawable/p_icon"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Passifi"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".EventQR"
+            android:exported="false" />
+        <activity
+            android:name=".QrScan"
+            android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
@@ -37,8 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

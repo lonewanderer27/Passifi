@@ -1,5 +1,6 @@
 package com.ja_cabili.passifi
 
+import MainViewModelFactory
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +8,9 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
+import com.ja_cabili.passifi.model.ErrorResponse
 import com.ja_cabili.passifi.repository.Repository
 
 class SignupActivity : AppCompatActivity() {
@@ -19,7 +23,9 @@ class SignupActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Loading...")
 
-        val viewModel = MainViewModelFactory(Repository()).create(MainViewModel::class.java)
+        val viewModelFactory = MainViewModelFactory(Repository(), applicationContext)
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
         // Find views by their IDs
         val signInText = findViewById<TextView>(R.id.signInText)
         val signUpButton = findViewById<TextView>(R.id.signUpButton)
@@ -61,7 +67,8 @@ class SignupActivity : AppCompatActivity() {
                 val intent = Intent(this@SignupActivity, HomeActivity::class.java)
                 startActivity(intent)
             } else {
-                Log.d("Error: ", response.errorBody()?.string().toString())
+                val errorResponse: ErrorResponse? = response.errorBody()?.string()?.let { Gson().fromJson(it, ErrorResponse::class.java) }
+                Toast.makeText(this, errorResponse?.error, Toast.LENGTH_LONG).show()
                 Toast.makeText(this, "Error: ${response.errorBody()?.string()}", Toast.LENGTH_LONG).show()
             }
         }
